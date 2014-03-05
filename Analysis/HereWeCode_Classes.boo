@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{07CFA73C-BDF8-4B73-BAAC-287A4B3C1224}" Label="" LastModificationDate="1394053110" Name="HereWeCode_Classes" Objects="41" Symbols="13" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{07CFA73C-BDF8-4B73-BAAC-287A4B3C1224}" Label="" LastModificationDate="1392849375" Name="HereWeCode_Classes" Objects="42" Symbols="13" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1383,7 +1383,7 @@ Shadow=0</a:DisplayPreferences>
 <o:AssociationSymbol Id="o5">
 <a:CreationDate>1392247789</a:CreationDate>
 <a:ModificationDate>1392849085</a:ModificationDate>
-<a:Rect>((-16864,-75), (-13040,6366))</a:Rect>
+<a:Rect>((-16901,-75), (-13003,6366))</a:Rect>
 <a:ListOfPoints>((-15027,6366),(-15027,-75))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1446,7 +1446,7 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o15">
 <a:CreationDate>1392247792</a:CreationDate>
 <a:ModificationDate>1392849147</a:ModificationDate>
-<a:Rect>((8957,521), (12805,6367))</a:Rect>
+<a:Rect>((8920,521), (12842,6367))</a:Rect>
 <a:ListOfPoints>((10794,521),(10794,3549),(10818,3549),(10818,6367))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1488,7 +1488,7 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o20">
 <a:CreationDate>1392849214</a:CreationDate>
 <a:ModificationDate>1392849254</a:ModificationDate>
-<a:Rect>((-16235,9674), (-1350,20700))</a:Rect>
+<a:Rect>((-16272,9674), (-1350,20700))</a:Rect>
 <a:ListOfPoints>((-14398,9674),(-14398,20700),(-1350,20700))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1509,8 +1509,8 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o23">
 <a:CreationDate>1392849288</a:CreationDate>
 <a:ModificationDate>1392849310</a:ModificationDate>
-<a:Rect>((-1185,9629), (9972,22046))</a:Rect>
-<a:ListOfPoints>((-1185,20872),(9972,20872),(9972,9629))</a:ListOfPoints>
+<a:Rect>((-1200,9629), (9972,22024))</a:Rect>
+<a:ListOfPoints>((-1200,20850),(9972,20850),(9972,9629))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1648,7 +1648,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:CreationDate>1392848044</a:CreationDate>
 <a:ModificationDate>1392849310</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-6087,16842), (3387,24558))</a:Rect>
+<a:Rect>((-5662,17329), (2962,24071))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1949,7 +1949,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Member</a:Code>
 <a:CreationDate>1392848044</a:CreationDate>
 <a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394053110</a:ModificationDate>
+<a:ModificationDate>1392849337</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -1966,11 +1966,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 <o:Attribute Id="o51">
 <a:ObjectID>A726871E-E6E9-43A1-99BC-B8111A9CB2E8</a:ObjectID>
-<a:Name>username</a:Name>
-<a:Code>username</a:Code>
+<a:Name>name</a:Name>
+<a:Code>name</a:Code>
 <a:CreationDate>1392848044</a:CreationDate>
 <a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394053110</a:ModificationDate>
+<a:ModificationDate>1392848140</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
@@ -1995,17 +1995,6 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1392848140</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:DataType>String</a:DataType>
-<a:Attribute.Visibility>-</a:Attribute.Visibility>
-</o:Attribute>
-<o:Attribute Id="o54">
-<a:ObjectID>71A9E381-1074-44E0-844D-1FF351D2F839</a:ObjectID>
-<a:Name>isAdmin</a:Name>
-<a:Code>isAdmin</a:Code>
-<a:CreationDate>1394053093</a:CreationDate>
-<a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394053110</a:ModificationDate>
-<a:Modifier>Thibaut</a:Modifier>
-<a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -2140,13 +2129,13 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o55">
+<o:TargetModel Id="o54">
 <a:ObjectID>F1D2552B-5DD5-4C4B-9505-2912228C7313</a:ObjectID>
 <a:Name>Analyse</a:Name>
 <a:Code>Analysis</a:Code>
 <a:CreationDate>1392247597</a:CreationDate>
 <a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394053087</a:ModificationDate>
+<a:ModificationDate>1392247597</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:TargetModelURL>file:///%_OBJLANG%/analysis.xol</a:TargetModelURL>
 <a:TargetModelID>87317290-AF03-469F-BC1E-99593F18A4AB</a:TargetModelID>

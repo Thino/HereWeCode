@@ -1,0 +1,4 @@
+-> Install PHP 5.5
+-> Install MySQL
+-> Install drivers for PDO
+-> Adapt the class /DB/Dal with db_name, user, password...
