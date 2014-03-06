@@ -14,7 +14,8 @@ isAdmin BOOLEAN,
 picture VARCHAR(200)
 );
 
-INSERT INTO MEMBER(username,password,picture) VALUES ("Elytio","dHVsb3JhcGE=","nothing");
+INSERT INTO MEMBER(username,password,picture,isAdmin) VALUES ("Elytio","dHVsb3JhcGE=","nothing",true);
+INSERT INTO MEMBER(username,password,picture,isAdmin) VALUES ("Woute","eWVuYXBh","nothing",false);
 
 CREATE TABLE COMMENT(
 idComment INTEGER PRIMARY KEY AUTO_INCREMENT ,
@@ -30,6 +31,7 @@ idPlace INTEGER PRIMARY KEY AUTO_INCREMENT ,
 name VARCHAR(100) NOT NULL UNIQUE,
 summary VARCHAR(1000),
 address VARCHAR(500),
+approved BOOLEAN,
 idMember INTEGER,
 FOREIGN KEY (idMember) REFERENCES MEMBER(idMember)
 );
