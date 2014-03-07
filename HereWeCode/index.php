@@ -1,32 +1,28 @@
 <?php
-	
-	 if (isset($_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Max-Age: 86400');    
-    }
-   
-    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");         
-
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-            header("Access-Control-Allow-Headers: Authorization, Content-Type");
-
-    } 
 
 
-	
-
-	
-	
-	
 	
 require_once 'Slim/Slim.php';
 require_once 'Models/MemberModel.php';
 require_once 'Slim/Middleware.php';
 require_once 'Slim/Middleware/BasicHttpAuthentication.php';
+	
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+        header("Access-Control-Allow-Origin: *");
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Max-Age: 86400');    
+}
+   
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+
+		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+            header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");         
+
+        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+            header("Access-Control-Allow-Headers: Authorization, Content-Type");
+} 
+	
+	
 
 
 \Slim\Slim::registerAutoloader();
@@ -41,7 +37,11 @@ $app->map('/:x+', function($x) {
 $app->add(new \BasicHttpAuthentication());
 
 $app->get('/rest/api/version/member/:id',function ($id) { MemberModel::getInstance()->getMemberWithId($id);});
+$app->put('/rest/api/version/member/:id',function ($id) { MemberModel::getInstance()->updateMemberWithId($id);});
+$app->post('/rest/api/version/member',function () { MemberModel::getInstance()->addMember();});
+$app->delete('/rest/api/version/member/:id',function ($id) { MemberModel::getInstance()->deleteMemberWithId($id);});
 
+$app->post('/rest/auth/session',function () { MemberModel::getInstance()->authMember();});
 
 
 

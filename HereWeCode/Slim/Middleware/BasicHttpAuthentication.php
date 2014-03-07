@@ -11,28 +11,25 @@ class BasicHttpAuthentication extends \Slim\Middleware
     public function __construct()
 	{
 		$this->allowedRoutes = array(
-		'GET_/rest/api/version/membr/',
-		'brown',
-		'caffeine'
+		'GET_/rest/api/version/member/',
+		'POST_/rest/auth/session',
+		'POST_/rest/api/version/member'		
 		);	
-	}
-	
-	
-	
-	
-	
+	}	
  
     // Bad Request man !
-    public function deny_access() {
+    public function deny_access() {		
+			$app = \Slim\Slim::getInstance();			
+			$app->response()->status(401);
+			echo ('{"error":"Bad Request"}');		
+    }  
+
 	
-		$this->app->response()->status(401);     
-              
-    }   
 	
 	// Check members in database to authenticate a user
-    public function authenticate($authString) {
+    public static function authenticate($authString) {
 		
-       	// Parse of the basic authorization header
+      	// Parse of the basic authorization header
 		try
 		{		
 			$auth =  substr($authString,6);
@@ -47,30 +44,18 @@ class BasicHttpAuthentication extends \Slim\Middleware
 			//Bad Header
 			return -1;
 		}
-		// No user or/and no password 
-		if ( !isset($user) || !isset($pass) )				
-			return -2;		
-		
-		$app = \Slim\Slim::getInstance();
-		$result = Dal::getInstance()->select('MEMBER',"username = '$user' AND password = '$pass'",'idMember');		
-		if ( $result->rowCount() > 0 )
-		{
-			$row = $result->fetch(PDO::FETCH_ASSOC);		
-			return $row['idMember'];
-			}
-		// Bad user/password combinaison
-		return -3;			
+		return 	Dal::getInstance()->getAuthUserId($user,$pass);	
     }
 	
 	
   
   
     public function call()
-    {		
-	
-		$route = $this->app->request()->getPathInfo();
-		$requMeth = $this->app->request()->getMethod();		
+    {	
+		//$this->next->call(); }} /*
 		
+		$route = $this->app->request()->getPathInfo();
+		$requMeth = $this->app->request()->getMethod();				
 		
 		foreach ($this->allowedRoutes as &$val) {
 			if ( $val === "" || strpos($requMeth.'_'.$route, $val) === 0 )
@@ -78,18 +63,17 @@ class BasicHttpAuthentication extends \Slim\Middleware
 				$this->next->call();
 				return;
 			}
-		}
-				
+		}				
 		
 		// Get the Authorization header
 		$headers = apache_request_headers();	
 
 				
-			// Check Authentication
-			if ( isset($headers['Authorization']) && $this->authenticate($headers['Authorization']) >= 0)				
-				$this->next->call();
-			else
-				$this->deny_access();	
+		// Check Authentication
+		if ( isset($headers['Authorization']) && BasicHttpAuthentication::authenticate($headers['Authorization']) >= 0)				
+			$this->next->call();
+		else
+			$this->deny_access();					
 					
 	}			
 }
