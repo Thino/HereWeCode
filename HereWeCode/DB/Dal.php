@@ -40,8 +40,7 @@ class Dal
                . (($limit) ? ' LIMIT ' . $limit : '')
                . (($offset && $limit) ? ' OFFSET ' . $offset : '')
                . (($order) ? ' ORDER BY ' . $order : '')
-			   . ';';	
-	   //echo  $query;       
+			   . ';';		
 	   return $this->connection->query($query);       
   }
   
@@ -80,6 +79,11 @@ class Dal
 		return $q->execute(); 	
     } 
 	
+	
+	
+	/////////////////////////////////////////////////////////
+	///////////////////// MEMBER ////////////////////////////
+	/////////////////////////////////////////////////////////
 	
 	
 	 public function getAuthUserId($user, $pass) {
@@ -145,30 +149,63 @@ class Dal
 		return $this->delete('MEMBER',"idMember = $id");				
    }
    
-   
-   
-   
-   
-   
-   
-  
-
-
- //$result = Dal::getInstance()->insert('MEMBER',array("username"=>"'moi'","password"=>"'pass'","picture"=>"'lllll'","isAdmin"=>"false"));	// INSERT. Retourn id inséré ou -1 si erreur
- //Dal::getInstance()->update('MEMBER',array("username"=>"'moiiiiiii'","password"=>"'passi'"),'idMember = 13') // UPDATE retourne true si ok false sinon
-//Dal::getInstance()->delete('MEMBER','idMember = 13') // DELETE true et false	  
-   
-   
-
-
-
+   	
+	/////////////////////////////////////////////////////////
+	///////////////////// FACILITY //////////////////////////
+	/////////////////////////////////////////////////////////
 	
-
-
+	 public function getFacilities() {	 
+		return $this->select('FACILITY');	
+	}
+	
+    // Add a facility in the database 
+	public function addFacility($name,$iconNoItem,$iconRed,$iconOrange,$iconGreen)
+	{ 	
+		return $this->insert('FACILITY',array("name"=>"'$name'","iconNoItem"=>"'$iconNoItem'","iconRed"=>"'$iconRed'","iconOrange"=>"'$iconOrange'","iconGreen"=>"'$iconGreen'"));	
+	}
+	
+	// Return basics informations of a user
+    public function getFacilityWithId($id)
+    {		
+		return $this->select('FACILITY',"idFacility = $id");			
+    }
+	
+	public function updateFacility($id,$name,$no,$red,$orange,$green)
+   {		
+		return $this->update('FACILITY',array("name"=>"'$name'","iconNoItem"=>"'$no'","iconRed"=>"'$red'","iconOrange"=>"'$orange'","iconGreen"=>"'$green'"),"idFacility = $id");						
+   }
+   
+    public function deleteFacility($id)
+   {		
+		return $this->delete('FACILITY',"idFacility = $id");				
+   }
+   
+   
+   /////////////////////////////////////////////////////////
+   ///////////////////// PLACE /////////////////////////////
+   /////////////////////////////////////////////////////////
+  
+	// Search a place in database 
+	public function searchPlace($toSearch,$startAt,$maxResults,$isValidate)
+	{ 	
+		return $this->select('PLACE',"(name LIKE '%$toSearch%' OR summary LIKE '%$toSearch%' OR address LIKE '%$toSearch%' ) AND approved = $isValidate ",'idPlace, name, summary, address, approved','',"$maxResults","$startAt");		
+	}
+	
+	// Add a place in the database 
+   public function addPlace($name,$summary,$address,$member)
+   { 	
+		return $this->insert('PLACE',array("name"=>"'$name'","summary"=>"'$summary'","address"=>"'$address'","approved"=>"false","idMember"=>"$member"));	
+   }
+   
+   // Return basics informations of a place
+    public function getPlaceWithId($id)
+    {		
+		return $this->select('PLACE',"idPlace = $id","idPlace,name,summary,address");			
+    }
+  
 
 
   
   
 
 }
-

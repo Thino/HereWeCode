@@ -13,7 +13,11 @@ class BasicHttpAuthentication extends \Slim\Middleware
 		$this->allowedRoutes = array(
 		'GET_/rest/api/version/member/',
 		'POST_/rest/auth/session',
-		'POST_/rest/api/version/member'		
+		'POST_/rest/api/version/member',	
+		'GET_/rest/api/version/facilities',
+		'GET_/rest/api/version/facility/',
+		'POST_/rest/api/version/places/search',
+		'GET_/rest/api/version/place/'
 		);	
 	}	
  
