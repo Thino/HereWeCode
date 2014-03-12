@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{07CFA73C-BDF8-4B73-BAAC-287A4B3C1224}" Label="" LastModificationDate="1394064646" Name="HereWeCode_Classes" Objects="42" Symbols="13" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{07CFA73C-BDF8-4B73-BAAC-287A4B3C1224}" Label="" LastModificationDate="1394657991" Name="HereWeCode_Classes" Objects="43" Symbols="13" Target="Analyse" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1383,8 +1383,8 @@ Shadow=0</a:DisplayPreferences>
 <o:AssociationSymbol Id="o5">
 <a:CreationDate>1392247789</a:CreationDate>
 <a:ModificationDate>1392849085</a:ModificationDate>
-<a:Rect>((-16913,-75), (-13048,5888))</a:Rect>
-<a:ListOfPoints>((-15085,5888),(-15027,-75))</a:ListOfPoints>
+<a:Rect>((-16901,-75), (-13003,6366))</a:Rect>
+<a:ListOfPoints>((-15027,6366),(-15027,-75))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1467,8 +1467,8 @@ MULA 0 Arial,8,N</a:FontList>
 <o:AssociationSymbol Id="o18">
 <a:CreationDate>1392247793</a:CreationDate>
 <a:ModificationDate>1392849147</a:ModificationDate>
-<a:Rect>((-9705,8505), (5761,10853))</a:Rect>
-<a:ListOfPoints>((5761,9679),(-9705,9679))</a:ListOfPoints>
+<a:Rect>((-10102,8504), (5761,10852))</a:Rect>
+<a:ListOfPoints>((5761,9678),(-10102,9678))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1531,7 +1531,7 @@ MULA 0 Arial,8,N</a:FontList>
 <a:CreationDate>1392247616</a:CreationDate>
 <a:ModificationDate>1392849254</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-19405,5816), (-9391,13532))</a:Rect>
+<a:Rect>((-18981,6303), (-9815,13045))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1680,7 +1680,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Comment</a:Code>
 <a:CreationDate>1392247616</a:CreationDate>
 <a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394064646</a:ModificationDate>
+<a:ModificationDate>1394657971</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -1728,17 +1728,6 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o35">
-<a:ObjectID>96E3745D-2B43-4BC5-B935-6407CC5E43DD</a:ObjectID>
-<a:Name>approved</a:Name>
-<a:Code>approved</a:Code>
-<a:CreationDate>1394064636</a:CreationDate>
-<a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1394064646</a:ModificationDate>
-<a:Modifier>Thibaut</a:Modifier>
-<a:DataType>boolean</a:DataType>
-<a:Attribute.Visibility>-</a:Attribute.Visibility>
-</o:Attribute>
 </c:Attributes>
 </o:Class>
 <o:Class Id="o26">
@@ -1751,7 +1740,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o36">
+<o:Attribute Id="o35">
 <a:ObjectID>952AE453-146B-41F7-8DEC-BB605E1D08E1</a:ObjectID>
 <a:Name>idMark</a:Name>
 <a:Code>idMark</a:Code>
@@ -1762,7 +1751,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>int</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o37">
+<o:Attribute Id="o36">
 <a:ObjectID>B82A8B6D-C531-4A56-AC0D-E9284E2C25A3</a:ObjectID>
 <a:Name>mark</a:Name>
 <a:Code>mark</a:Code>
@@ -1785,7 +1774,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o38">
+<o:Attribute Id="o37">
 <a:ObjectID>3372BDCE-BEEA-42D1-92EE-D87D096D50F3</a:ObjectID>
 <a:Name>idFacility</a:Name>
 <a:Code>idFacility</a:Code>
@@ -1796,7 +1785,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>int</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o39">
+<o:Attribute Id="o38">
 <a:ObjectID>D553C427-35B4-4E29-AE0F-0227E4B7B96A</a:ObjectID>
 <a:Name>name</a:Name>
 <a:Code>name</a:Code>
@@ -1807,7 +1796,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o40">
+<o:Attribute Id="o39">
 <a:ObjectID>C91F1621-DD92-43AE-B0F2-FE3E999E9F81</a:ObjectID>
 <a:Name>iconNoItem</a:Name>
 <a:Code>iconNoItem</a:Code>
@@ -1818,7 +1807,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o41">
+<o:Attribute Id="o40">
 <a:ObjectID>AED26BDA-B74B-4875-B274-2130803C919F</a:ObjectID>
 <a:Name>iconRed</a:Name>
 <a:Code>iconRed</a:Code>
@@ -1829,7 +1818,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o42">
+<o:Attribute Id="o41">
 <a:ObjectID>9771E2A8-B37F-4CE7-8BC2-B5379C5834A2</a:ObjectID>
 <a:Name>iconOrange</a:Name>
 <a:Code>iconOrange</a:Code>
@@ -1840,7 +1829,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o43">
+<o:Attribute Id="o42">
 <a:ObjectID>18B8FCF0-6442-4158-81A0-5B8D4D598C3F</a:ObjectID>
 <a:Name>iconGreen</a:Name>
 <a:Code>iconGreen</a:Code>
@@ -1863,7 +1852,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o44">
+<o:Attribute Id="o43">
 <a:ObjectID>E7E69400-1CD7-4A76-8C59-2410EF436937</a:ObjectID>
 <a:Name>idCriteria</a:Name>
 <a:Code>idCriteria</a:Code>
@@ -1874,7 +1863,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>int</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o45">
+<o:Attribute Id="o44">
 <a:ObjectID>48F46DD2-C728-4573-90E1-7CD0B1D830C9</a:ObjectID>
 <a:Name>availability</a:Name>
 <a:Code>availability</a:Code>
@@ -1885,7 +1874,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o46">
+<o:Attribute Id="o45">
 <a:ObjectID>F04E7E72-57C1-4426-9F44-5D9CF93DDCDD</a:ObjectID>
 <a:Name>free</a:Name>
 <a:Code>free</a:Code>
@@ -1904,11 +1893,11 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Place</a:Code>
 <a:CreationDate>1392247619</a:CreationDate>
 <a:Creator>Thibaut</a:Creator>
-<a:ModificationDate>1392849353</a:ModificationDate>
+<a:ModificationDate>1394657991</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o47">
+<o:Attribute Id="o46">
 <a:ObjectID>8091B188-160B-43B9-A1F7-F55011C03CAB</a:ObjectID>
 <a:Name>idPlace</a:Name>
 <a:Code>idPlace</a:Code>
@@ -1919,7 +1908,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>int</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o48">
+<o:Attribute Id="o47">
 <a:ObjectID>389F86C1-EB25-4D30-A645-9E509A82380E</a:ObjectID>
 <a:Name>name</a:Name>
 <a:Code>name</a:Code>
@@ -1930,7 +1919,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o49">
+<o:Attribute Id="o48">
 <a:ObjectID>22366976-BDF0-412A-BB0F-0C07E555F815</a:ObjectID>
 <a:Name>summary</a:Name>
 <a:Code>summary</a:Code>
@@ -1941,7 +1930,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o50">
+<o:Attribute Id="o49">
 <a:ObjectID>9C9D38C4-B99A-44E9-8744-C3B848F582D4</a:ObjectID>
 <a:Name>address</a:Name>
 <a:Code>address</a:Code>
@@ -1950,6 +1939,17 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1392248266</a:ModificationDate>
 <a:Modifier>Thibaut</a:Modifier>
 <a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o50">
+<a:ObjectID>4F4BC75A-3F8B-4FA5-A2A1-12AFF7A39F77</a:ObjectID>
+<a:Name>approved</a:Name>
+<a:Code>approved</a:Code>
+<a:CreationDate>1394657975</a:CreationDate>
+<a:Creator>Thibaut</a:Creator>
+<a:ModificationDate>1394657991</a:ModificationDate>
+<a:Modifier>Thibaut</a:Modifier>
+<a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
