@@ -6,6 +6,7 @@ require_once 'Slim/Slim.php';
 require_once 'Models/MemberModel.php';
 require_once 'Models/FacilityModel.php';
 require_once 'Models/PlaceModel.php';
+require_once 'Models/CommentModel.php';
 require_once 'Slim/Middleware.php';
 require_once 'Slim/Middleware/BasicHttpAuthentication.php';
 	
@@ -52,11 +53,20 @@ $app->delete('/rest/api/version/facility/:id',function ($id) { FacilityModel::ge
 
 $app->post('/rest/api/version/place',function () { PlaceModel::getInstance()->addPlace();});
 $app->get('/rest/api/version/place/:id',function ($id) { PlaceModel::getInstance()->getPlaceWithId($id);});
+$app->put('/rest/api/version/place/:id',function ($id) { PlaceModel::getInstance()->updatePlaceWithId($id);});
+$app->delete('/rest/api/version/place/:id',function ($id) { PlaceModel::getInstance()->deletePlaceWithId($id);});
 
 
+$app->get('/rest/api/version/comment/:id',function ($id) { CommentModel::getInstance()->getCommentWithId($id);});
+$app->put('/rest/api/version/comment/:id',function ($id) { CommentModel::getInstance()->updateCommentWithId($id);});
+$app->delete('/rest/api/version/comment/:id',function ($id) { CommentModel::getInstance()->deleteCommentWithId($id);});
+
+$app->get('/rest/api/version/place/:id/comment',function ($id) { CommentModel::getInstance()->getCommentsWithPlaceId($id);});
+$app->post('/rest/api/version/place/:id/comment',function ($id) { CommentModel::getInstance()->addCommentToPlace($id);});
 
 $app->post('/rest/auth/session',function () { MemberModel::getInstance()->authMember();});
 $app->post('/rest/api/version/places/search',function () { PlaceModel::getInstance()->searchPlace();});
+
 
 
 $app->run(); 

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DB/Dal.php';
+require_once 'DB/DalMySql.php';
 
 
 class MemberModel
@@ -24,7 +24,7 @@ class MemberModel
    public function getMemberWithId($id)
    {		
 		$app = \Slim\Slim::getInstance();		
-		$result = Dal::getInstance()->getMemberWithId($id);	
+		$result = DalMySql::getInstance()->getMemberWithId($id);	
 		if ( $result->rowCount() > 0 )
 		{
 			$app->response()->header('Content-Type', 'application/json');	
@@ -46,11 +46,11 @@ class MemberModel
 		// Get the Authorization header to verify if user modify his own profile ( or if he is admin )
 		$headers = apache_request_headers();
 		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
-		if ( $authid == $id || Dal::getInstance()->isAdmin($authid)  )
+		if ( $authid == $id || DalMySql::getInstance()->isAdmin($authid)  )
 		{
 			$body = $app->request()->getBody();
 			$input = json_decode($body); 		
-			if ( isset($input->password) && isset($input->picture) && Dal::getInstance()->updateMember($id,$input->password,$input->picture) )
+			if ( isset($input->password) && isset($input->picture) && DalMySql::getInstance()->updateMember($id,$input->password,$input->picture) )
 			{
 				$app->response()->header('Content-Type', 'application/json');	
 				$app->response()->status(204);					
@@ -77,9 +77,9 @@ class MemberModel
 		// Get the Authorization header to verify if user delete his own profile ( or if he is admin )
 		$headers = apache_request_headers();
 		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
-		if ( $authid == $id || Dal::getInstance()->isAdmin($authid)  )
+		if ( $authid == $id || DalMySql::getInstance()->isAdmin($authid)  )
 		{
-			if ( Dal::getInstance()->deleteMember($id) )
+			if ( DalMySql::getInstance()->deleteMember($id) )
 			{
 				$app->response()->header('Content-Type', 'application/json');	
 				$app->response()->status(204);					
@@ -112,7 +112,7 @@ class MemberModel
 		$input = json_decode($body); 		
 		if ( isset($input->username) && !empty($input->username) &&  isset($input->password) && !empty($input->password) )
 		{
-		    $result = Dal::getInstance()->authMember($input->username,$input->password);
+		    $result = DalMySql::getInstance()->authMember($input->username,$input->password);
 			if ( $result->rowCount() > 0 )
 			{
 					$app->response()->header('Content-Type', 'application/json');	
@@ -134,7 +134,7 @@ class MemberModel
 		$input = json_decode($body); 		
 		if ( isset($input->username) && !empty($input->username) &&  isset($input->password) && !empty($input->password) &&  isset($input->picture) )
 		{
-		    $result = Dal::getInstance()->addMember($input->username,$input->password,$input->picture);
+		    $result = DalMySql::getInstance()->addMember($input->username,$input->password,$input->picture);
 			if ( $result >= 0 )
 			{
 					$app->response()->header('Content-Type', 'application/json');	

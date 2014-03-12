@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DB/Dal.php';
+require_once 'DB/DalMySql.php';
 
 
 class PlaceModel
@@ -37,7 +37,7 @@ class PlaceModel
 						$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
 					else
 						$authid = -1;				
-					if ( ! Dal::getInstance()->isAdmin($authid) )
+					if ( ! DalMySql::getInstance()->isAdmin($authid) )
 					{
 						$app->response()->header('Content-Type', 'application/json');	
 						$app->response()->status(401);		
@@ -46,7 +46,7 @@ class PlaceModel
 					}
 				}	
 				
-				$result = Dal::getInstance()->searchPlace($input->query,$input->startAt,$input->maxResults,$input->approved);
+				$result = DalMySql::getInstance()->searchPlace($input->query,$input->startAt,$input->maxResults,$input->approved);
 				$app->response()->header('Content-Type', 'application/json');	
 				$app->response()->status(200);			
 				echo json_encode($result->fetchAll(PDO::FETCH_ASSOC));		
@@ -68,7 +68,7 @@ class PlaceModel
 		{
 			$headers = apache_request_headers();
 			$idUser = BasicHttpAuthentication::authenticate($headers['Authorization']);
-			$result = Dal::getInstance()->addPlace($input->name,$input->summary,$input->address,$idUser);
+			$result = DalMySql::getInstance()->addPlace($input->name,$input->summary,$input->address,$idUser);
 			if ( $result > 0 )
 			{
 				$app->response()->header('Content-Type', 'application/json');	
@@ -94,7 +94,7 @@ class PlaceModel
    public function getPlaceWithId($id)
    {		
 		$app = \Slim\Slim::getInstance();		
-		$result = Dal::getInstance()->getPlaceWithId($id);	
+		$result = DalMySql::getInstance()->getPlaceWithId($id);	
 		if ( $result->rowCount() > 0 )
 		{
 			$app->response()->header('Content-Type', 'application/json');	
@@ -108,6 +108,76 @@ class PlaceModel
 			echo ('{"error":"No place were found"}');	
 		} 
    }
+   
+   // Update a place
+   public function  updatePlaceWithId($id)
+   {		
+		$app = \Slim\Slim::getInstance();	
+		// Get the Authorization header to verify if user modify his place ( or if he is admin )
+		$headers = apache_request_headers();
+		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
+		if ( $authid == $id || DalMySql::getInstance()->isAdmin($authid)  )
+		{
+			$body = $app->request()->getBody();
+			$input = json_decode($body); 		
+			if ( isset($input->name) && isset($input->summary) && isset($input->address) && !empty($input->name) && !empty($input->summary) && !empty($input->address) )
+			{
+				if ( DalMySql::getInstance()->updatePlace($id,$input->name,$input->summary,$input->address) )
+				{
+					$app->response()->header('Content-Type', 'application/json');	
+					$app->response()->status(204);
+				}	
+				else
+				{
+					$app->response()->header('Content-Type', 'application/json');	
+					$app->response()->status(400);
+					echo ('{"error":" This name already exists"}');		
+				}				
+			}
+			else
+			{
+				$app->response()->header('Content-Type', 'application/json');	
+				$app->response()->status(400);	
+				echo ('{"error":"Name, Summary and Address are required !"}');			
+			}
+		}			
+		else
+		{
+			$app->response()->header('Content-Type', 'application/json');	
+			$app->response()->status(401);	
+			echo ('{"error":"Bad Authorization ( You can only modify a place you have created )"}');	
+		}			
+   }
+   
+   // Delete a place
+   public function  deletePlaceWithId($id)
+   {		
+		$app = \Slim\Slim::getInstance();	
+		// Get the Authorization header to verify if the user in an admin or can delete his own place
+		$headers = apache_request_headers();
+		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
+		if ( $authid == $id || DalMySql::getInstance()->isAdmin($authid)  )
+		{
+			if ( DalMySql::getInstance()->deletePlace($id) )
+			{
+				$app->response()->header('Content-Type', 'application/json');	
+				$app->response()->status(204);					
+			}
+			else
+			{
+				$app->response()->header('Content-Type', 'application/json');	
+				$app->response()->status(520);	
+				echo ('{"error":"Internal problem with the delete"}');			
+			}	
+		}
+		else
+		{
+			$app->response()->header('Content-Type', 'application/json');	
+			$app->response()->status(401);	
+			echo ('{"error":"Bad Authorization ( You can delete only places you have created )"}');	
+		}		
+   }
+   
 
 }
 

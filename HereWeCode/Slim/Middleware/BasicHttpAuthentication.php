@@ -17,7 +17,8 @@ class BasicHttpAuthentication extends \Slim\Middleware
 		'GET_/rest/api/version/facilities',
 		'GET_/rest/api/version/facility/',
 		'POST_/rest/api/version/places/search',
-		'GET_/rest/api/version/place/'
+		'GET_/rest/api/version/place/',
+		'GET_/rest/api/version/comment/'
 		);	
 	}	
  
@@ -48,7 +49,7 @@ class BasicHttpAuthentication extends \Slim\Middleware
 			//Bad Header
 			return -1;
 		}
-		return 	Dal::getInstance()->getAuthUserId($user,$pass);	
+		return 	DalMySql::getInstance()->getAuthUserId($user,$pass);	
     }
 	
 	

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DB/Dal.php';
+require_once 'DB/DalMySql.php';
 
 
 class FacilityModel
@@ -24,7 +24,7 @@ class FacilityModel
    public function getFacilities()
    {		
 		$app = \Slim\Slim::getInstance();		
-		$result = Dal::getInstance()->getFacilities();		
+		$result = DalMySql::getInstance()->getFacilities();		
 		$app->response()->header('Content-Type', 'application/json');	
 		$app->response()->status(200);			
 		echo json_encode($result->fetchAll(PDO::FETCH_ASSOC));		
@@ -37,13 +37,13 @@ class FacilityModel
 		$app = \Slim\Slim::getInstance();
 		$headers = apache_request_headers();
 		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
-		if ( Dal::getInstance()->isAdmin($authid)  )
+		if ( DalMySql::getInstance()->isAdmin($authid)  )
 		{
 			$body = $app->request()->getBody();
 			$input = json_decode($body); 		
 			if ( isset($input->name) && !empty($input->name) &&  isset($input->iconNoItem) && isset($input->iconRed) &&  isset($input->iconOrange) &&  isset($input->iconGreen))
 			{
-				$result = Dal::getInstance()->addFacility($input->name,$input->iconNoItem,$input->iconRed,$input->iconOrange,$input->iconGreen);
+				$result = DalMySql::getInstance()->addFacility($input->name,$input->iconNoItem,$input->iconRed,$input->iconOrange,$input->iconGreen);
 				if ( $result >= 0 )
 				{
 						$app->response()->header('Content-Type', 'application/json');	
@@ -78,7 +78,7 @@ class FacilityModel
    public function getFacilityWithId($id)
    {		
 		$app = \Slim\Slim::getInstance();		
-		$result = Dal::getInstance()->getFacilityWithId($id);	
+		$result = DalMySql::getInstance()->getFacilityWithId($id);	
 		if ( $result->rowCount() > 0 )
 		{
 			$app->response()->header('Content-Type', 'application/json');	
@@ -93,19 +93,19 @@ class FacilityModel
 		} 
    }
    
-     // Update facility
+   // Update facility
    public function  updateFacilityWithId($id)
    {		
 		$app = \Slim\Slim::getInstance();	
 		// Get the Authorization header to verify if client is admin
 		$headers = apache_request_headers();
 		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
-		if ( Dal::getInstance()->isAdmin($authid)  )
+		if ( DalMySql::getInstance()->isAdmin($authid)  )
 		{
 			$body = $app->request()->getBody();
 			$input = json_decode($body); 		
 			if (  isset($input->name) && !empty($input->name) &&  isset($input->iconNoItem) && isset($input->iconRed) &&  isset($input->iconOrange) &&  isset($input->iconGreen)
-			&& Dal::getInstance()->updateFacility($id,$input->name,$input->iconNoItem,$input->iconRed,$input->iconOrange,$input->iconGreen))
+			&& DalMySql::getInstance()->updateFacility($id,$input->name,$input->iconNoItem,$input->iconRed,$input->iconOrange,$input->iconGreen))
 			{
 				$app->response()->header('Content-Type', 'application/json');	
 				$app->response()->status(204);					
@@ -133,9 +133,9 @@ class FacilityModel
 		// Get the Authorization header to verify if the user in an admin
 		$headers = apache_request_headers();
 		$authid = BasicHttpAuthentication::authenticate($headers['Authorization']);
-		if ( Dal::getInstance()->isAdmin($authid)  )
+		if ( DalMySql::getInstance()->isAdmin($authid)  )
 		{
-			if ( Dal::getInstance()->deleteFacility($id) )
+			if ( DalMySql::getInstance()->deleteFacility($id) )
 			{
 				$app->response()->header('Content-Type', 'application/json');	
 				$app->response()->status(204);					
