@@ -1,0 +1,52 @@
+#formular {
+	top: 2%;
+	height: 30%;
+	left: 30%;
+	width: 40%;
+	padding: 2%;
+	border: solid 1px rgb(202, 202, 202);
+	text-align : center;
+	z-Index : 10;
+	background: rgb(232, 232, 232);
+	box-shadow: 8px 8px 0 rgb(202, 202, 202);
+}
+
+#formular * {
+	position: relative;
+}
+
+#placeName {
+	width: 60%;
+}
+
+#summary {
+	resize: none;
+	width: 60%;
+	height: 30%;
+}
+
+#number {
+	width: 10%;
+}
+
+#street {
+	width: 49%;
+}
+
+#zip {
+	width: 15%;
+}
+
+#city {
+	width: 44%;
+}
+
+#add {
+	height: 8%;
+	width: 30%;
+	left: 0;
+	border : solid 1px #BBBBBB;
+	background-color : white;
+	cursor : pointer;
+	font-size: 1.1em;
+}

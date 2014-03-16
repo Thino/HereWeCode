@@ -1,0 +1,50 @@
+#pPicture {
+	position: absolute;
+	left: 10%;
+	width: 35%;
+	top: 2%;
+	height: auto;
+}
+
+#profileBox
+{
+	left: 46%;
+	width: 40%;
+	top: 2%;
+	height: 20%;
+	border: solid 1px rgb(202, 202, 202);
+	text-align : center;
+	z-Index : 10;
+	background: rgb(232, 232, 232);
+	box-shadow: 8px 8px 0 rgb(202, 202, 202);
+}
+
+#profileBox * {
+	position: relative;
+}
+
+#profileBox input {
+	width: 60%;
+}
+
+#update
+{
+	width: 30%;
+	border : solid 1px #BBBBBB;
+	background-color : white;
+	cursor : pointer;
+	font-size: 1.1em;
+}
+
+#adminPanel {
+	display: none;
+	top: 25%;
+	height: 7%;
+	left: 50%;
+	width: 32%;
+	cursor: pointer;
+	background: rgb(122, 152, 202);
+	color: rgb(255, 255, 255);
+	font-size: 1.4em;
+	box-shadow: 8px 8px 0 rgb(152, 182, 232);
+}

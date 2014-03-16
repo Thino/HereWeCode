@@ -1,0 +1,34 @@
+.order {
+	top: 1%;
+	height: 3%;
+	width: 30%;
+	background: rgb(122, 152, 202);
+	color: rgb(255, 255, 255);
+	font-size: 1.4em;
+	cursor: pointer;
+}
+
+#byMark {
+	left: 10%;
+}
+
+#byDistance {
+	left: 60%;
+}
+
+#places {
+	top: 5%;
+	width: 100%;
+}
+
+.placeDiv {
+	position: relative;
+	padding: 1%;
+	height: 5%;
+	width: 98%;
+	cursor: pointer;
+}
+
+.placeDiv:hover {
+	background: rgb(232, 232, 232);
+}

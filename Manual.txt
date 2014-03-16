@@ -1,0 +1,33 @@
+***********HereWeCode***********
+
+What we have done :
+- A REST API which provides places with some criterias. A place allows comments, marks, ... ( See UML Class Diagram ).
+- This API can be used with JSON.
+- We have used Slim to create our API.
+- We have used Geocoder to calculate distances between places and the client.
+- We have created a client in HTML/Javascript for use our API ( The php part has no views because we have a HTML client ).
+- We have created tests with POSTMAN ( an extension for Google Chrome ). In fact, create tests for an API REST is not 
+easy especially if we use authentication in Middleware. So this solution was interesting for test easily our routes. We have 
+done somes tests with phpUnit but just for the DataAccessLayer.
+- We have used PDO to create our DataAccessLayer. An interface has been created for allow later the possibility of using an
+other database ( SQL Server for example ).
+- We have described all the REST methods in the page index.php/specs.
+
+What you have to do :
+- Install the last version of php
+- Install the last version of MySql
+- Install an apache server 
+- Install the driver PDO
+- Install phpunit 
+- Create MySql Database with our file Analysis/db_herewecode.sql ( which contains some elements as samples )
+- Install phpunit to use our tests for the DAL. Use ( phpunit --config phpunit.xml )
+- Install POSTMAN on Google Chrome and import our collection of test ( HereWeCode_Tests.json.txt )
+- Update the host or ip address of the serveur which carry the php project in the HTML client ( onload.js)
+- Update the dbname/user/password in the file DB/DalMySql.php to connect the MySql database.
+- Update the ip/host of every picture in the file Analysis/db_herewecode.sql to match with your location.
+- Use option --enable-file-cookies with Chrome for use the HTML client in local.
+
+
+Vivien Faure & Thibaut Rouchouse
+
+

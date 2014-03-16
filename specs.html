@@ -1,0 +1,217 @@
+<html>
+<head>
+  <title>HereWeCode</title>
+    <style type="text/css">
+  body {    
+    color: #023708;  
+	font-size: 120%;	
+	 font-family:  Geneva, Arial,
+          SunSans-Regular, sans-serif;		
+	}
+  h1 {   
+	text-align: center;
+	} 
+ 
+ #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/wallpaper.jpg');
+    opacity: 0.3;
+    filter:alpha(opacity=30);
+}
+
+#blue
+{
+	color: blue;
+}
+
+#green
+{
+	color: black;
+}
+
+#image
+{
+	float:right;	
+}
+  
+</style>
+</head>
+<body>
+<div id="background">
+</div>
+<h1 >********Here We Code********</h1>
+</br>
+<h2 >Are you looking for a good place to meet with geeks like you ? Use our REST API like this :</h2>
+</br>
+</br>
+
+<div id="blue">
+When the symbol <b>#Authentication</b> is specified,</br>
+you must add an Authorization header like "Basic user:password". </br>
+The string user:password must encoded in Base64. </br>
+</br>
+</div>
+<div>
+<img id="image" SRC="../img/thisWay.png"  />
+</div>
+
+
+<div id="green" >
+
+// Authentication (password in Base64) </br>
+POST : /rest/auth/session  </br>
+JSON params : {username,password}</br>
+RETURN JSON :  201 {idMember,username,image,isAdmin} | 401 {error}</br>
+
+
+
+</br></br>
+// Add Member  </br>
+POST : /rest/api/version/member  </br>
+JSON params : {username,password,picture} // password in Base64</br>
+RETURN JSON :  201 {idMember,username,picture,isAdmin} | 409 {error}</br>
+
+</br></br>
+// Get a member </br>
+GET : /rest/api/version/member/{id}  </br>
+JSON params : </br>
+RETURN JSON :  200 {idMember,username,picture,isAdmin} | 404 {error}</br>
+
+</br></br>
+// Update a member </br>
+PUT : /rest/api/version/member/{id} <b>#Authentication</b> </br>
+JSON params : {password,picture}</br>
+RETURN JSON :  200 {idMember,username,picture,isAdmin}  | 401 {error} | 500 {error}</br>
+
+</br></br>
+// Delete a member </br>
+DELETE : /rest/api/version/member/{id}  <b>#Authentication</b></br>
+JSON params : </br>
+RETURN JSON :  204  | 401 {error} | 500 {error}</br>
+
+
+
+</br></br>
+// Request the server to send facilities back </br>
+GET : /rest/api/version/facility </br>
+JSON params : </br>
+RETURN JSON :  200 [{id,name,iconNoItem,iconRed,iconOrange,iconGreen}]</br>
+
+</br></br>
+// Add a facility </br>
+POST : /rest/api/version/facility  <b>#AdminAuthentication</b></br>
+JSON params : {name,iconNoItem,iconRed,iconOrange,iconGreen}</br>
+RETURN JSON :  201 {id} | 401 {error}</br>
+
+</br></br>
+// Get a facility </br>
+GET: /rest/api/version/facility/{id}  </br>
+JSON params : /</br>
+RETURN JSON :  200 {id,name,iconNoItem,iconRed,iconOrange,iconGreen} </br>
+
+</br></br>
+// Update facility </br>
+PUT : /rest/api/version/facility/{id}   <b>#AdminAuthentication</b></br>
+JSON params : {id,name,iconNoItem,iconRed,iconOrange,iconGreen}</br>
+RETURN JSON :  204 | 401 {error}  </br>
+
+</br></br>
+// Delete facility </br>
+DELETE : /rest/api/version/facility/{id}   <b>#AdminAuthentication</b></br>
+JSON params : /</br>
+RETURN JSON :  204 | 401 {error}  </br>
+
+
+
+</br></br>
+// Search for places </br>
+POST : /rest/api/version/place/search </br>
+JSON params : {query,startAt,maxResults,approved,orderBy}/</br>
+RETURN JSON :  200 [{idPlace,name,summary,address,placeMark,distance,approved,idMember}] | 401 {error}  </br>
+
+</br></br>
+// Get places </br>
+GET : /rest/api/version/place </br>
+JSON params : /</br>
+RETURN JSON :  200 [{idPlace,name,summary,address,placeMark,distance,approved,idMember}] </br>
+
+</br></br>
+// Create a place </br>
+POST : /rest/api/version/place </br>
+JSON params : {name,summary,address}/</br>
+RETURN JSON :  201 {id} | 401 {error}  </br>
+
+</br></br>
+// Get a place </br>
+GET : /rest/api/version/place/{id} </br>
+JSON params : /</br>
+RETURN JSON :  200 {idPlace,name,summary,address,placeMark,distance,approved,idMember} </br>
+
+</br></br>
+// Update a place </br>
+PUT : /rest/api/version/place/{id} </br>
+JSON params : {name,summary,address,approved} </br>
+RETURN JSON :  204 | 401 {error} </br>
+
+</br></br>
+// Delete a place </br>
+DELETE : /rest/api/version/place/{id} </br>
+JSON params : /</br>
+RETURN JSON :  204 | 401 {error} </br>
+
+
+
+</br></br>
+// Get facilities for a place </br>
+GET : /rest/api/version/place/{id}/facility </br>
+JSON params : /</br>
+RETURN JSON :  200 [{id,name,mark,icon}] </br>
+
+</br></br>
+// Post a facility for a place </br>
+POST : /rest/api/version/place/{id}/facility </br>
+JSON params : {id,availability,free} </br>
+RETURN JSON :  204 | 401 {error} </br>
+
+
+
+</br></br>
+// Get comments for a place </br>
+GET : /rest/api/version/place/{id}/comment </br>
+JSON params : /</br>
+RETURN JSON :  200 [{idComment,placeMark,date,text,idMember,username}] </br>
+
+</br></br>
+// Post a comment for a place </br>
+POST : /rest/api/version/place/{id}/comment </br>
+JSON params : {text,placeMark} </br>
+RETURN JSON :  201 | 401 {error} </br>
+
+
+
+</br></br>
+// Get a comment </br>
+GET : /rest/api/version/comment/{id} </br>
+JSON params : /</br>
+RETURN JSON :  200 {idComment,idMember,date,text} </br>
+
+</br></br>
+// Update a comment </br>
+PUT : /rest/api/version/comment/{id} </br>
+JSON params : {text} </br>
+RETURN JSON :  204 | 401 {error} </br>
+
+</br></br>
+// Delete a comment </br>
+DELETE : /rest/api/version/comment/{id} </br>
+JSON params : /</br>
+RETURN JSON :  204 | 401 {error} </br>
+</div>
+</body>
+</html>
+
+

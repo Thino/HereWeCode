@@ -1,0 +1,16 @@
+#places {
+	top: 0;
+	width: 100%;
+}
+
+.placeDiv {
+	position: relative;
+	padding: 1%;
+	height: 5%;
+	width: 98%;
+	cursor: pointer;
+}
+
+.placeDiv:hover {
+	background: rgb(232, 232, 232);
+}
